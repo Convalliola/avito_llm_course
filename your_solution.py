@@ -74,6 +74,9 @@ SOLUTION_CONFIG = {
     # The loss is mathematically identical to the padded batch, but no compute is spent on pad tokens.
     'padding_free': True,
     'pad_to_multiple_of': 64,
+    # Shorter packed batches are padded up to this length: torch.compile's matmul padding pass guards on
+    # `2048 <= total_len`, and a batch below it triggers a ~40 s recompilation in the middle of training.
+    'min_batch_tokens': 2048,
     # Keep fp32 master weights (+ bf16 autocast) instead of training pure bf16 weights.
     'fp32_master_weights': False,
     # LR schedule driven by wall-clock time, so the LR is annealed exactly when the time budget runs out
@@ -178,6 +181,13 @@ class TimeBudgetTrainer(Trainer):
         return super().create_scheduler(num_training_steps, optimizer)
 
     def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+        if self.args.torch_compile and 'cu_seq_lens_q' in inputs:
+            # Packed batches change length every step: compile for a dynamic length right away instead of
+            # compiling for the first batch's exact shape and recompiling on the second one.
+            for key in (INPUT_IDS, LABELS, 'position_ids'):
+                torch._dynamo.maybe_mark_dynamic(inputs[key], 1)
+            for key in ('cu_seq_lens_q', 'cu_seq_lens_k'):
+                torch._dynamo.maybe_mark_dynamic(inputs[key], 0)
         if model.training:
             # Kept on the GPU to avoid a host sync every step; it is read only when logging.
             n_tokens = (inputs[LABELS] != IGNORE_INDEX).sum()
@@ -326,9 +336,10 @@ class PaddingFreeCollator:
     max_length is the fixed upper bound MAX_LENGTH, which keeps it constant for torch.compile.
     """
 
-    def __init__(self, pad_token_id, pad_to_multiple_of=None):
+    def __init__(self, pad_token_id, pad_to_multiple_of=None, min_batch_tokens=0):
         self.pad_token_id = pad_token_id
         self.pad_to_multiple_of = pad_to_multiple_of
+        self.min_batch_tokens = min_batch_tokens
 
     def __call__(self, features):
         input_ids, labels, position_ids, cu_seq_lens = [], [], [], [0]
@@ -340,14 +351,17 @@ class PaddingFreeCollator:
             position_ids.extend(range(n_keep))
             cu_seq_lens.append(cu_seq_lens[-1] + n_keep)
 
-        # Tail padding as a separate fully-ignored "document" limits the number of distinct shapes for torch.compile.
+        # Tail padding: fully-ignored "documents" of at most MAX_LENGTH tokens (max_length must stay an upper bound).
+        n_pad = max(self.min_batch_tokens - len(input_ids), 0)
         if self.pad_to_multiple_of:
-            n_pad = -len(input_ids) % self.pad_to_multiple_of
-            if n_pad:
-                input_ids.extend([self.pad_token_id] * n_pad)
-                labels.extend([IGNORE_INDEX] * n_pad)
-                position_ids.extend(range(n_pad))
-                cu_seq_lens.append(cu_seq_lens[-1] + n_pad)
+            n_pad += -(len(input_ids) + n_pad) % self.pad_to_multiple_of
+        while n_pad > 0:
+            chunk = min(n_pad, MAX_LENGTH)
+            input_ids.extend([self.pad_token_id] * chunk)
+            labels.extend([IGNORE_INDEX] * chunk)
+            position_ids.extend(range(chunk))
+            cu_seq_lens.append(cu_seq_lens[-1] + chunk)
+            n_pad -= chunk
 
         cu_seq_lens = torch.tensor(cu_seq_lens, dtype=torch.int32)
         return {
@@ -364,7 +378,8 @@ class PaddingFreeCollator:
 
 def make_collator(solution_config, tokenizer):
     if solution_config['padding_free']:
-        return PaddingFreeCollator(tokenizer.pad_token_id, solution_config['pad_to_multiple_of'])
+        return PaddingFreeCollator(
+            tokenizer.pad_token_id, solution_config['pad_to_multiple_of'], solution_config['min_batch_tokens'])
     return PaddedCollator()
 
 
