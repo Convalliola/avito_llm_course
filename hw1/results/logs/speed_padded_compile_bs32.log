@@ -1,0 +1,37 @@
+Training samples: 1940063
+Validation samples: 5000
+Model pad token id: 2
+Total params: 960,881,664
+  0%|          | 0/55 [00:00<?, ?it/s]W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] Graph break from `Tensor.item()`, consider setting:
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] or:
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] to include these operations in the captured graph.
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] 
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] Graph break: from user code at:
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/accelerate/utils/operations.py", line 814, in forward
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     return model_forward(*args, **kwargs)
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/accelerate/utils/operations.py", line 802, in __call__
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     return convert_to_fp32(self.model_forward(*args, **kwargs))
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     return func(*args, **kwargs)
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/transformers/utils/generic.py", line 969, in wrapper
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     output = func(self, *args, **kwargs)
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 730, in forward
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     outputs: BaseModelOutputWithPast = self.model(
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/transformers/utils/generic.py", line 969, in wrapper
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     output = func(self, *args, **kwargs)
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 446, in forward
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     causal_mask = self._update_causal_mask(
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 510, in _update_causal_mask
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     if attention_mask is not None and 0.0 in attention_mask:
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] 
+W1001 22:15:30.457000 19948 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] 
+  2%|▏         | 1/55 [00:10<09:20, 10.38s/it]{
+  "name": "padded_compile_bs32",
+  "overrides": {
+    "per_device_train_batch_size": 32
+  },
+  "error": "OOM"
+}
+  2%|▏         | 1/55 [00:12<10:53, 12.10s/it]

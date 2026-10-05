@@ -1,0 +1,42 @@
+Training samples: 1940063
+Validation samples: 5000
+Model pad token id: 2
+Total params: 960,881,664
+  0%|          | 0/55 [00:00<?, ?it/s]W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] Graph break from `Tensor.item()`, consider setting:
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] or:
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] to include these operations in the captured graph.
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] 
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] Graph break: from user code at:
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/accelerate/utils/operations.py", line 814, in forward
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     return model_forward(*args, **kwargs)
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/accelerate/utils/operations.py", line 802, in __call__
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     return convert_to_fp32(self.model_forward(*args, **kwargs))
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     return func(*args, **kwargs)
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/transformers/utils/generic.py", line 969, in wrapper
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     output = func(self, *args, **kwargs)
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 730, in forward
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     outputs: BaseModelOutputWithPast = self.model(
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/transformers/utils/generic.py", line 969, in wrapper
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     output = func(self, *args, **kwargs)
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 446, in forward
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     causal_mask = self._update_causal_mask(
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]   File "/home/wolk1612/anaconda3/envs/hw1_5090/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 510, in _update_causal_mask
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0]     if attention_mask is not None and 0.0 in attention_mask:
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] 
+W1001 22:14:44.496000 18526 site-packages/torch/_dynamo/variables/tensor.py:1047] [0/0] 
+  2%|▏         | 1/55 [00:10<09:40, 10.75s/it]  4%|▎         | 2/55 [00:12<04:36,  5.23s/it]  5%|▌         | 3/55 [00:12<02:34,  2.97s/it]  7%|▋         | 4/55 [00:12<01:36,  1.90s/it]  9%|▉         | 5/55 [00:12<01:05,  1.31s/it] 11%|█         | 6/55 [00:13<00:46,  1.05it/s] 13%|█▎        | 7/55 [00:13<00:34,  1.37it/s] 15%|█▍        | 8/55 [00:13<00:27,  1.73it/s] 16%|█▋        | 9/55 [00:13<00:22,  2.08it/s] 18%|█▊        | 10/55 [00:14<00:18,  2.42it/s] 20%|██        | 11/55 [00:14<00:16,  2.73it/s] 22%|██▏       | 12/55 [00:14<00:14,  2.99it/s] 24%|██▎       | 13/55 [00:15<00:13,  3.21it/s] 25%|██▌       | 14/55 [00:15<00:12,  3.36it/s] 27%|██▋       | 15/55 [00:15<00:11,  3.49it/s] 29%|██▉       | 16/55 [00:15<00:10,  3.58it/s] 31%|███       | 17/55 [00:16<00:10,  3.65it/s] 33%|███▎      | 18/55 [00:16<00:10,  3.69it/s] 35%|███▍      | 19/55 [00:16<00:09,  3.72it/s] 36%|███▋      | 20/55 [00:16<00:09,  3.75it/s] 38%|███▊      | 21/55 [00:17<00:09,  3.77it/s] 40%|████      | 22/55 [00:17<00:08,  3.78it/s] 42%|████▏     | 23/55 [00:17<00:08,  3.79it/s] 44%|████▎     | 24/55 [00:17<00:08,  3.80it/s] 45%|████▌     | 25/55 [00:18<00:07,  3.81it/s] 47%|████▋     | 26/55 [00:18<00:07,  3.81it/s] 49%|████▉     | 27/55 [00:18<00:07,  3.81it/s] 51%|█████     | 28/55 [00:18<00:07,  3.80it/s] 53%|█████▎    | 29/55 [00:19<00:06,  3.81it/s] 55%|█████▍    | 30/55 [00:19<00:06,  3.81it/s] 56%|█████▋    | 31/55 [00:19<00:06,  3.81it/s] 58%|█████▊    | 32/55 [00:19<00:06,  3.82it/s] 60%|██████    | 33/55 [00:20<00:05,  3.82it/s] 62%|██████▏   | 34/55 [00:20<00:05,  3.82it/s] 64%|██████▎   | 35/55 [00:20<00:05,  3.82it/s] 65%|██████▌   | 36/55 [00:21<00:04,  3.81it/s] 67%|██████▋   | 37/55 [00:21<00:04,  3.81it/s] 69%|██████▉   | 38/55 [00:21<00:04,  3.81it/s] 71%|███████   | 39/55 [00:21<00:04,  3.81it/s] 73%|███████▎  | 40/55 [00:22<00:03,  3.81it/s] 75%|███████▍  | 41/55 [00:22<00:03,  3.82it/s] 76%|███████▋  | 42/55 [00:22<00:03,  3.82it/s] 78%|███████▊  | 43/55 [00:22<00:03,  3.82it/s] 80%|████████  | 44/55 [00:23<00:02,  3.82it/s] 82%|████████▏ | 45/55 [00:23<00:02,  3.82it/s] 84%|████████▎ | 46/55 [00:23<00:02,  3.82it/s] 85%|████████▌ | 47/55 [00:23<00:02,  3.82it/s] 87%|████████▋ | 48/55 [00:24<00:01,  3.82it/s] 89%|████████▉ | 49/55 [00:24<00:01,  3.82it/s] 91%|█████████ | 50/55 [00:24<00:01,  3.82it/s] 93%|█████████▎| 51/55 [00:24<00:01,  3.81it/s] 95%|█████████▍| 52/55 [00:25<00:00,  3.82it/s] 96%|█████████▋| 53/55 [00:25<00:00,  3.82it/s] 98%|█████████▊| 54/55 [00:25<00:00,  3.82it/s]100%|██████████| 55/55 [00:26<00:00,  3.82it/s]                                               100%|██████████| 55/55 [00:26<00:00,  3.82it/s]                                               100%|██████████| 55/55 [00:26<00:00,  3.82it/s]100%|██████████| 55/55 [00:26<00:00,  2.11it/s]
+{'loss': 9.4775, 'grad_norm': 3.0, 'learning_rate': 0.00055, 'elapsed_sec': 26.8, 'train_tokens': 309355, 'epoch': 0.0}
+{'train_runtime': 26.0308, 'train_samples_per_second': 33.806, 'train_steps_per_second': 2.113, 'train_loss': 9.477469149502841, 'elapsed_sec': 26.8, 'train_tokens': 309355, 'epoch': 0.0}
+{
+  "name": "padded_compile",
+  "overrides": {},
+  "tokens_per_sec": 21761.622324405584,
+  "sec_per_step": 0.2621851861476898,
+  "samples_per_sec": 61.02556835910304,
+  "first_step_sec": 10.752392768859863,
+  "last_logged_loss": 9.4775,
+  "peak_memory_gb": 16.44391679763794
+}
