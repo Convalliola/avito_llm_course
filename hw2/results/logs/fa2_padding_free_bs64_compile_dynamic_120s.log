@@ -1,0 +1,30 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are attempting to use Flash Attention 2 without specifying a torch dtype. This might lead to unexpected behaviour
+{"step": 10, "elapsed_seconds": 110.062171261, "step_seconds": 0.19381417200020223, "target_tokens": 5417, "warmup": true}
+{'loss': 11.2276, 'grad_norm': 5.90625, 'learning_rate': 1.3499999999999998e-05, 'epoch': 0.00261437908496732}
+{"step": 20, "elapsed_seconds": 112.01312865199998, "step_seconds": 0.20147960299982515, "target_tokens": 5687, "warmup": false}
+{'loss': 11.1715, 'grad_norm': 5.78125, 'learning_rate': 2.8499999999999998e-05, 'epoch': 0.00522875816993464}
+{"step": 30, "elapsed_seconds": 113.9652551879999, "step_seconds": 0.19919142199978523, "target_tokens": 5617, "warmup": false}
+{'loss': 10.9337, 'grad_norm': 6.0, 'learning_rate': 4.3499999999999993e-05, 'epoch': 0.00784313725490196}
+{"step": 40, "elapsed_seconds": 115.87837073300034, "step_seconds": 0.18585170800088235, "target_tokens": 5080, "warmup": false}
+{'loss': 10.0793, 'grad_norm': 3.234375, 'learning_rate': 5.85e-05, 'epoch': 0.01045751633986928}
+{"step": 50, "elapsed_seconds": 117.84347875599997, "step_seconds": 0.19477138700040086, "target_tokens": 5460, "warmup": false}
+{'loss': 9.0817, 'grad_norm': 1.6640625, 'learning_rate': 7.35e-05, 'epoch': 0.013071895424836602}
+{"step": 60, "elapsed_seconds": 120.01651353000034, "step_seconds": 0.2183744130006744, "target_tokens": 6316, "warmup": false}
+{'loss': 8.593, 'grad_norm': 1.0546875, 'learning_rate': 8.849999999999998e-05, 'epoch': 0.01568627450980392}
+{'train_runtime': 120.0178, 'train_loss': 10.181161371866862, 'epoch': 0.01568627450980392}
+{
+  "train_seconds": 120.01651353000034,
+  "optimizer_steps": 60,
+  "target_tokens": 337427,
+  "tokens_per_second_including_warmup": 2811.5047677639286,
+  "warmup_steps": 10,
+  "measured_steps": 50,
+  "measured_seconds": 9.954342269000335,
+  "tokens_per_second": 28122.70187572255,
+  "seconds_per_optimizer_step": 0.1990868453800067,
+  "peak_allocated_gib": 15.19544792175293,
+  "peak_reserved_gib": 20.025390625,
+  "validation_loss": 8.40657854542044,
+  "validation_target_tokens": 50694
+}

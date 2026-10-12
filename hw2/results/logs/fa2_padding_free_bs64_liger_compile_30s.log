@@ -1,0 +1,29 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are attempting to use Flash Attention 2 without specifying a torch dtype. This might lead to unexpected behaviour
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0] Graph break from `Tensor.item()`, consider setting:
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0]     torch._dynamo.config.capture_scalar_outputs = True
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0] or:
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0] to include these operations in the captured graph.
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0] 
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0] Graph break: from user code at:
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/transformers/modeling_flash_attention_utils.py", line 354, in torch_dynamo_resume_in_prepare_fa_kwargs_from_position_ids_at_335
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0]     max_length_q = max_length_q.item()
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0] 
+W1008 16:27:44.478000 2864 torch/_dynamo/variables/tensor.py:869] [22/0] 
+{'train_runtime': 36.2454, 'train_loss': 11.219433784484863, 'epoch': 0.00026143790849673205}
+{
+  "train_seconds": 36.24454125199986,
+  "optimizer_steps": 1,
+  "target_tokens": 6439,
+  "tokens_per_second_including_warmup": 177.65433849006754,
+  "warmup_steps": 10,
+  "measured_steps": 0,
+  "measured_seconds": 0,
+  "tokens_per_second": null,
+  "seconds_per_optimizer_step": null,
+  "peak_allocated_gib": 11.360876560211182,
+  "peak_reserved_gib": 11.84375,
+  "validation_loss": 11.234664706124326,
+  "validation_target_tokens": 50694
+}

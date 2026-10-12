@@ -1,0 +1,24 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Truncating train dataset:   0%|          | 0/244768 [00:00<?, ? examples/s]Truncating train dataset:  69%|██████▊   | 168000/244768 [00:00<00:00, 1653199.15 examples/s]Truncating train dataset: 100%|██████████| 244768/244768 [00:00<00:00, 1135556.23 examples/s]
+{"step": 10, "elapsed_seconds": 11.474218402000133, "step_seconds": 0.843002191000096, "target_tokens": 5417, "warmup": true}
+{'loss': 11.2276, 'grad_norm': 5.90625, 'learning_rate': 1.3499999999999998e-05, 'epoch': 0.002614720878546215}
+{"step": 20, "elapsed_seconds": 19.966612195000152, "step_seconds": 1.0660042619999786, "target_tokens": 5687, "warmup": false}
+{'loss': 11.1716, 'grad_norm': 5.78125, 'learning_rate': 2.8499999999999998e-05, 'epoch': 0.00522944175709243}
+{"step": 30, "elapsed_seconds": 27.80110702800016, "step_seconds": 0.7763927250000506, "target_tokens": 5617, "warmup": false}
+{'loss': 10.9336, 'grad_norm': 6.0, 'learning_rate': 4.3499999999999993e-05, 'epoch': 0.007844162635638646}
+{'train_runtime': 30.224, 'train_loss': 11.057681690562855, 'epoch': 0.00862857889920251}
+{
+  "train_seconds": 30.22318038100002,
+  "optimizer_steps": 33,
+  "target_tokens": 182366,
+  "tokens_per_second_including_warmup": 6033.977817723163,
+  "warmup_steps": 10,
+  "measured_steps": 23,
+  "measured_seconds": 18.748961978999887,
+  "tokens_per_second": 6660.742079474924,
+  "seconds_per_optimizer_step": 0.8151722599565169,
+  "peak_allocated_gib": 41.230456829071045,
+  "peak_reserved_gib": 43.439453125,
+  "validation_loss": 10.206812615657402,
+  "validation_target_tokens": 50694
+}

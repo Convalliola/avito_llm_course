@@ -1,0 +1,21 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are attempting to use Flash Attention 2 without specifying a torch dtype. This might lead to unexpected behaviour
+curr_pct=72.0% > self.virtual_memory_safe_pct=60% of virtual memory used
+{"step": 10, "elapsed_seconds": 97.92834797399973, "step_seconds": 7.440023842000301, "target_tokens": 5417, "warmup": true}
+{'loss': 11.2276, 'grad_norm': 5.90625, 'learning_rate': 1.3499999999999998e-05, 'epoch': 0.002614720878546215}
+{'train_runtime': 121.3202, 'train_loss': 11.223050924447866, 'epoch': 0.0033991371421100798}
+{
+  "train_seconds": 121.31896561699978,
+  "optimizer_steps": 13,
+  "target_tokens": 73684,
+  "tokens_per_second_including_warmup": 607.3576346885293,
+  "warmup_steps": 10,
+  "measured_steps": 3,
+  "measured_seconds": 23.39061764300004,
+  "tokens_per_second": 692.5853881779847,
+  "seconds_per_optimizer_step": 7.7968725476666805,
+  "peak_allocated_gib": 16.445128917694092,
+  "peak_reserved_gib": 23.576171875,
+  "validation_loss": 11.195509246657313,
+  "validation_target_tokens": 50694
+}

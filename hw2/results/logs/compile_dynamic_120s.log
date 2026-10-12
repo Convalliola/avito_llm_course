@@ -1,0 +1,29 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+{"step": 10, "elapsed_seconds": 93.33514805300001, "step_seconds": 0.541036972999791, "target_tokens": 5417, "warmup": true}
+{'loss': 11.2276, 'grad_norm': 5.90625, 'learning_rate': 1.3499999999999998e-05, 'epoch': 0.002614720878546215}
+{"step": 20, "elapsed_seconds": 98.81476196200038, "step_seconds": 0.6860286929995709, "target_tokens": 5687, "warmup": false}
+{'loss': 11.1713, 'grad_norm': 5.78125, 'learning_rate': 2.8499999999999998e-05, 'epoch': 0.00522944175709243}
+{"step": 30, "elapsed_seconds": 103.87438122500043, "step_seconds": 0.4964252480003779, "target_tokens": 5617, "warmup": false}
+{'loss': 10.9337, 'grad_norm': 6.0, 'learning_rate': 4.3499999999999993e-05, 'epoch': 0.007844162635638646}
+{"step": 40, "elapsed_seconds": 108.82690259100036, "step_seconds": 0.45637698999962595, "target_tokens": 5080, "warmup": false}
+{'loss': 10.0787, 'grad_norm': 3.234375, 'learning_rate': 5.85e-05, 'epoch': 0.01045888351418486}
+{"step": 50, "elapsed_seconds": 113.36476311800016, "step_seconds": 0.37911650899968663, "target_tokens": 5460, "warmup": false}
+{'loss': 9.0809, 'grad_norm': 1.65625, 'learning_rate': 7.35e-05, 'epoch': 0.013073604392731076}
+{"step": 60, "elapsed_seconds": 118.91480510100064, "step_seconds": 0.6418106339997394, "target_tokens": 6316, "warmup": false}
+{'loss': 8.5928, 'grad_norm': 1.0625, 'learning_rate': 8.849999999999998e-05, 'epoch': 0.015688325271277292}
+{'train_runtime': 120.0364, 'train_loss': 10.126810596835229, 'epoch': 0.016211269446986535}
+{
+  "train_seconds": 120.03551299400078,
+  "optimizer_steps": 62,
+  "target_tokens": 349011,
+  "tokens_per_second_including_warmup": 2907.564530652217,
+  "warmup_steps": 10,
+  "measured_steps": 52,
+  "measured_seconds": 26.70036494100077,
+  "tokens_per_second": 10918.464996421622,
+  "seconds_per_optimizer_step": 0.5134685565577072,
+  "peak_allocated_gib": 31.156448364257812,
+  "peak_reserved_gib": 32.138671875,
+  "validation_loss": 8.387190540391755,
+  "validation_target_tokens": 50694
+}

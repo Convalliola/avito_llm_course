@@ -1,0 +1,8 @@
+data/
+__pycache__/
+results/*_failed_*/
+.ipynb_checkpoints/
+check.py 
+check_env.py 
+RUN_ON_VM.md
+instructions.md

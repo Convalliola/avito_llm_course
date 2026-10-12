@@ -1,0 +1,40 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are attempting to use Flash Attention 2 without specifying a torch dtype. This might lead to unexpected behaviour
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0] Graph break from `Tensor.item()`, consider setting:
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]     torch._dynamo.config.capture_scalar_outputs = True
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0] or:
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0] to include these operations in the captured graph.
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0] 
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0] Graph break: from user code at:
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/model/qwen3.py", line 95, in torch_dynamo_resume_in_lce_forward_at_65
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]     loss = LigerForCausalLMLoss(
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/model/loss_utils.py", line 57, in LigerForCausalLMLoss
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]     loss = fixed_fused_linear_cross_entropy(
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/model/loss_utils.py", line 20, in fixed_fused_linear_cross_entropy
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]     loss = F.liger_fused_linear_cross_entropy(
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/functional.py", line 69, in liger_fused_linear_cross_entropy
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]     loss, z_loss = LigerFusedLinearCrossEntropyFunction.apply(
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw1/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 503, in decorate_fwd
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]     return fwd(*args, **kwargs)
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/ops/fused_linear_cross_entropy.py", line 246, in forward
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]     loss, z_loss, grad_input, grad_weight, grad_bias = fused_linear_cross_entropy_forward(
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/ops/fused_linear_cross_entropy.py", line 63, in fused_linear_cross_entropy_forward
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0]     total_n_non_ignore = target_mask.sum().item()
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0] 
+W1008 17:23:27.017000 25407 torch/_dynamo/variables/tensor.py:869] [30/0] 
+{"step": 10, "elapsed_seconds": 90.62181533399962, "step_seconds": 0.5431085780001013, "target_tokens": 21646, "warmup": true}
+Traceback (most recent call last):
+  File "/home/edu/hw2/train.py", line 394, in <module>
+    if __name__ == "__main__":
+  File "/home/edu/hw2/train.py", line 384, in main
+    
+  File "/home/edu/venv-hw2/lib/python3.10/site-packages/transformers/trainer.py", line 2328, in train
+    return inner_training_loop(
+  File "/home/edu/venv-hw2/lib/python3.10/site-packages/transformers/trainer.py", line 2754, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/home/edu/venv-hw2/lib/python3.10/site-packages/transformers/trainer.py", line 3223, in _maybe_log_save_evaluate
+    self.log(logs, start_time)
+  File "/home/edu/hw2/train.py", line 237, in log
+    if key in logs and not math.isfinite(logs[key]):
+FloatingPointError: Значение loss не валидное

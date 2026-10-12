@@ -1,0 +1,45 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are attempting to use Flash Attention 2 without specifying a torch dtype. This might lead to unexpected behaviour
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0] Graph break from `Tensor.item()`, consider setting:
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]     torch._dynamo.config.capture_scalar_outputs = True
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0] or:
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0] to include these operations in the captured graph.
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0] 
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0] Graph break: from user code at:
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/model/qwen3.py", line 95, in torch_dynamo_resume_in_lce_forward_at_65
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]     loss = LigerForCausalLMLoss(
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/model/loss_utils.py", line 57, in LigerForCausalLMLoss
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]     loss = fixed_fused_linear_cross_entropy(
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/model/loss_utils.py", line 20, in fixed_fused_linear_cross_entropy
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]     loss = F.liger_fused_linear_cross_entropy(
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/functional.py", line 69, in liger_fused_linear_cross_entropy
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]     loss, z_loss = LigerFusedLinearCrossEntropyFunction.apply(
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw1/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 503, in decorate_fwd
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]     return fwd(*args, **kwargs)
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/ops/fused_linear_cross_entropy.py", line 246, in forward
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]     loss, z_loss, grad_input, grad_weight, grad_bias = fused_linear_cross_entropy_forward(
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/ops/fused_linear_cross_entropy.py", line 63, in fused_linear_cross_entropy_forward
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0]     total_n_non_ignore = target_mask.sum().item()
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0] 
+W1008 17:25:45.789000 28802 torch/_dynamo/variables/tensor.py:869] [30/0] 
+{"step": 10, "elapsed_seconds": 98.73279541000011, "step_seconds": 0.34071613600008277, "target_tokens": 10233, "warmup": true}
+{'loss': 11.2266, 'grad_norm': 4.3125, 'learning_rate': 1.3499999999999998e-05, 'epoch': 0.005227391531625719}
+{"step": 20, "elapsed_seconds": 103.06941089800057, "step_seconds": 0.3591851190003581, "target_tokens": 10828, "warmup": false}
+{'loss': 11.1465, 'grad_norm': 4.21875, 'learning_rate': 2.8499999999999998e-05, 'epoch': 0.010454783063251438}
+{'train_runtime': 120.1426, 'train_loss': 11.105232803909868, 'epoch': 0.014113957135389441}
+{
+  "train_seconds": 120.14176049300022,
+  "optimizer_steps": 27,
+  "target_tokens": 300286,
+  "tokens_per_second_including_warmup": 2499.4306623090933,
+  "warmup_steps": 10,
+  "measured_steps": 17,
+  "measured_seconds": 21.408965083000112,
+  "tokens_per_second": 8786.646120945472,
+  "seconds_per_optimizer_step": 1.2593508872353008,
+  "peak_allocated_gib": 22.729702472686768,
+  "peak_reserved_gib": 25.3515625,
+  "validation_loss": 10.537548581058374,
+  "validation_target_tokens": 50694
+}

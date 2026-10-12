@@ -1,0 +1,98 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are attempting to use Flash Attention 2 without specifying a torch dtype. This might lead to unexpected behaviour
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0] Graph break from `Tensor.item()`, consider setting:
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]     torch._dynamo.config.capture_scalar_outputs = True
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0] or:
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0] to include these operations in the captured graph.
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0] 
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0] Graph break: from user code at:
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/model/qwen3.py", line 95, in torch_dynamo_resume_in_lce_forward_at_65
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]     loss = LigerForCausalLMLoss(
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/model/loss_utils.py", line 57, in LigerForCausalLMLoss
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]     loss = fixed_fused_linear_cross_entropy(
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/model/loss_utils.py", line 20, in fixed_fused_linear_cross_entropy
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]     loss = F.liger_fused_linear_cross_entropy(
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/transformers/functional.py", line 69, in liger_fused_linear_cross_entropy
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]     loss, z_loss = LigerFusedLinearCrossEntropyFunction.apply(
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw1/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 503, in decorate_fwd
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]     return fwd(*args, **kwargs)
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/ops/fused_linear_cross_entropy.py", line 246, in forward
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]     loss, z_loss, grad_input, grad_weight, grad_bias = fused_linear_cross_entropy_forward(
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/ops/fused_linear_cross_entropy.py", line 63, in fused_linear_cross_entropy_forward
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0]     total_n_non_ignore = target_mask.sum().item()
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0] 
+W1008 17:19:56.090000 22570 torch/_dynamo/variables/tensor.py:869] [30/0] 
+{"step": 10, "elapsed_seconds": 61.33276967599977, "step_seconds": 0.36341025399997307, "target_tokens": 5417, "warmup": true}
+W1008 17:20:51.725000 22570 torch/_dynamo/convert_frame.py:906] [36/8] torch._dynamo hit config.cache_size_limit (8)
+W1008 17:20:51.725000 22570 torch/_dynamo/convert_frame.py:906] [36/8]    function: 'torch_dynamo_resume_in_fused_linear_cross_entropy_forward_at_63' (/home/edu/venv-hw2/lib/python3.10/site-packages/liger_kernel/ops/fused_linear_cross_entropy.py:63)
+W1008 17:20:51.725000 22570 torch/_dynamo/convert_frame.py:906] [36/8]    last reason: 36/0: L['BT'] == 6503                                             
+W1008 17:20:51.725000 22570 torch/_dynamo/convert_frame.py:906] [36/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W1008 17:20:51.725000 22570 torch/_dynamo/convert_frame.py:906] [36/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+{'loss': 11.2277, 'grad_norm': 5.90625, 'learning_rate': 1.3499999999999998e-05, 'epoch': 0.00261437908496732}
+{"step": 20, "elapsed_seconds": 64.22288992700032, "step_seconds": 0.21243878899986157, "target_tokens": 5687, "warmup": false}
+{'loss': 11.1717, 'grad_norm': 5.78125, 'learning_rate': 2.8499999999999998e-05, 'epoch': 0.00522875816993464}
+{"step": 30, "elapsed_seconds": 66.88976166599969, "step_seconds": 0.2119891899992581, "target_tokens": 5617, "warmup": false}
+{'loss': 10.9346, 'grad_norm': 5.96875, 'learning_rate': 4.3499999999999993e-05, 'epoch': 0.00784313725490196}
+{"step": 40, "elapsed_seconds": 69.28060921399992, "step_seconds": 0.19933881999986625, "target_tokens": 5080, "warmup": false}
+{'loss': 10.0922, 'grad_norm': 3.296875, 'learning_rate': 5.85e-05, 'epoch': 0.01045751633986928}
+{"step": 50, "elapsed_seconds": 71.50925537700004, "step_seconds": 0.20660232399950473, "target_tokens": 5460, "warmup": false}
+{'loss': 9.0989, 'grad_norm': 1.578125, 'learning_rate': 7.35e-05, 'epoch': 0.013071895424836602}
+{"step": 60, "elapsed_seconds": 74.63032418200055, "step_seconds": 0.3781537840004603, "target_tokens": 6316, "warmup": false}
+{'loss': 8.6045, 'grad_norm': 1.125, 'learning_rate': 8.849999999999998e-05, 'epoch': 0.01568627450980392}
+{"step": 70, "elapsed_seconds": 77.07519249300003, "step_seconds": 0.22825585400005366, "target_tokens": 6375, "warmup": false}
+{'loss': 8.4637, 'grad_norm': 1.3828125, 'learning_rate': 0.00010349999999999998, 'epoch': 0.018300653594771243}
+{"step": 80, "elapsed_seconds": 79.57740749599998, "step_seconds": 0.20136363399979018, "target_tokens": 5204, "warmup": false}
+{'loss': 8.4411, 'grad_norm': 1.109375, 'learning_rate': 0.0001185, 'epoch': 0.02091503267973856}
+{"step": 90, "elapsed_seconds": 81.9193877810003, "step_seconds": 0.21973544000047696, "target_tokens": 5889, "warmup": false}
+{'loss': 8.376, 'grad_norm': 1.3125, 'learning_rate': 0.0001335, 'epoch': 0.023529411764705882}
+{"step": 100, "elapsed_seconds": 84.16433663000043, "step_seconds": 0.20819924600073136, "target_tokens": 5564, "warmup": false}
+{'loss': 8.2931, 'grad_norm': 1.3828125, 'learning_rate': 0.00014849999999999998, 'epoch': 0.026143790849673203}
+{"step": 110, "elapsed_seconds": 86.29749538800024, "step_seconds": 0.2299514790001922, "target_tokens": 6100, "warmup": false}
+{'loss': 8.3081, 'grad_norm': 1.1953125, 'learning_rate': 0.0001635, 'epoch': 0.02875816993464052}
+{"step": 120, "elapsed_seconds": 88.50123414100017, "step_seconds": 0.18850711100003537, "target_tokens": 4951, "warmup": false}
+{'loss': 8.2604, 'grad_norm': 2.078125, 'learning_rate': 0.00017849999999999997, 'epoch': 0.03137254901960784}
+{"step": 130, "elapsed_seconds": 90.61709662800058, "step_seconds": 0.22047238500090316, "target_tokens": 5866, "warmup": false}
+{'loss': 8.2104, 'grad_norm': 1.7734375, 'learning_rate': 0.0001935, 'epoch': 0.03398692810457516}
+{"step": 140, "elapsed_seconds": 92.93115901700003, "step_seconds": 0.26652363700031856, "target_tokens": 6778, "warmup": false}
+{'loss': 8.144, 'grad_norm': 1.171875, 'learning_rate': 0.00020849999999999997, 'epoch': 0.036601307189542485}
+{"step": 150, "elapsed_seconds": 95.05223706800007, "step_seconds": 0.20656899299956422, "target_tokens": 5372, "warmup": false}
+{'loss': 8.0436, 'grad_norm': 2.953125, 'learning_rate': 0.00022349999999999998, 'epoch': 0.0392156862745098}
+{"step": 160, "elapsed_seconds": 97.37744079999993, "step_seconds": 0.20725145699998393, "target_tokens": 5393, "warmup": false}
+{'loss': 8.0173, 'grad_norm': 1.2265625, 'learning_rate': 0.0002385, 'epoch': 0.04183006535947712}
+{"step": 170, "elapsed_seconds": 99.52200850200006, "step_seconds": 0.22640474699983315, "target_tokens": 6067, "warmup": false}
+{'loss': 7.9344, 'grad_norm': 1.15625, 'learning_rate': 0.0002535, 'epoch': 0.044444444444444446}
+{"step": 180, "elapsed_seconds": 101.68084214999999, "step_seconds": 0.20638425299966912, "target_tokens": 5338, "warmup": false}
+{'loss': 7.9044, 'grad_norm': 1.390625, 'learning_rate': 0.00026849999999999997, 'epoch': 0.047058823529411764}
+{"step": 190, "elapsed_seconds": 103.94233695900039, "step_seconds": 0.21711130400035472, "target_tokens": 5735, "warmup": false}
+{'loss': 7.8226, 'grad_norm': 1.15625, 'learning_rate': 0.00028349999999999995, 'epoch': 0.04967320261437908}
+{"step": 200, "elapsed_seconds": 106.16054029299994, "step_seconds": 0.2081951800000752, "target_tokens": 5414, "warmup": false}
+{'loss': 7.739, 'grad_norm': 1.1171875, 'learning_rate': 0.0002985, 'epoch': 0.05228758169934641}
+{"step": 210, "elapsed_seconds": 108.34921600400048, "step_seconds": 0.23667263200059097, "target_tokens": 6532, "warmup": false}
+{'loss': 7.6951, 'grad_norm': 1.234375, 'learning_rate': 0.0003, 'epoch': 0.054901960784313725}
+{"step": 220, "elapsed_seconds": 110.45778409500053, "step_seconds": 0.19169268300083786, "target_tokens": 5049, "warmup": false}
+{'loss': 7.6386, 'grad_norm': 1.2265625, 'learning_rate': 0.0003, 'epoch': 0.05751633986928104}
+{"step": 230, "elapsed_seconds": 112.79848995599968, "step_seconds": 0.37590251399979024, "target_tokens": 6016, "warmup": false}
+{'loss': 7.5721, 'grad_norm': 1.1484375, 'learning_rate': 0.0003, 'epoch': 0.06013071895424837}
+{"step": 240, "elapsed_seconds": 114.9678536700003, "step_seconds": 0.21283205300005648, "target_tokens": 5556, "warmup": false}
+{'loss': 7.4588, 'grad_norm': 1.203125, 'learning_rate': 0.0003, 'epoch': 0.06274509803921569}
+{"step": 250, "elapsed_seconds": 117.16634745800002, "step_seconds": 0.19357573599972966, "target_tokens": 5042, "warmup": false}
+{'loss': 7.3747, 'grad_norm': 1.0390625, 'learning_rate': 0.0003, 'epoch': 0.06535947712418301}
+{"step": 260, "elapsed_seconds": 119.31964429999971, "step_seconds": 0.20612786099991354, "target_tokens": 5279, "warmup": false}
+{'loss': 7.2828, 'grad_norm': 1.0859375, 'learning_rate': 0.0003, 'epoch': 0.06797385620915032}
+{'train_runtime': 120.1807, 'train_loss': 8.446650331670588, 'epoch': 0.06901960784313725}
+{
+  "train_seconds": 120.17988889299977,
+  "optimizer_steps": 264,
+  "target_tokens": 1499663,
+  "tokens_per_second_including_warmup": 12478.485492154188,
+  "warmup_steps": 10,
+  "measured_steps": 254,
+  "measured_seconds": 58.847119217,
+  "tokens_per_second": 24507.214952730894,
+  "seconds_per_optimizer_step": 0.23168157172047243,
+  "peak_allocated_gib": 16.48897409439087,
+  "peak_reserved_gib": 20.736328125,
+  "validation_loss": 7.1172031615242926,
+  "validation_target_tokens": 50694
+}

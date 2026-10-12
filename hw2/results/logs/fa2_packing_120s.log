@@ -1,0 +1,33 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are attempting to use Flash Attention 2 without specifying a torch dtype. This might lead to unexpected behaviour
+Packing train dataset:   0%|          | 0/244768 [00:00<?, ? examples/s]Packing train dataset:   4%|▎         | 9000/244768 [00:00<00:02, 83444.57 examples/s]Packing train dataset:   8%|▊         | 19000/244768 [00:00<00:02, 87996.47 examples/s]Packing train dataset:  12%|█▏        | 29000/244768 [00:00<00:02, 90233.30 examples/s]Packing train dataset:  16%|█▌        | 39000/244768 [00:00<00:02, 91220.92 examples/s]Packing train dataset:  20%|██        | 49000/244768 [00:00<00:02, 91885.65 examples/s]Packing train dataset:  24%|██▍       | 59000/244768 [00:00<00:02, 92286.21 examples/s]Packing train dataset:  28%|██▊       | 69000/244768 [00:00<00:01, 92776.99 examples/s]Packing train dataset:  32%|███▏      | 79000/244768 [00:00<00:01, 92847.49 examples/s]Packing train dataset:  36%|███▋      | 89000/244768 [00:00<00:01, 92955.71 examples/s]Packing train dataset:  40%|████      | 99000/244768 [00:01<00:01, 92451.65 examples/s]Packing train dataset:  45%|████▍     | 109000/244768 [00:01<00:01, 92532.84 examples/s]Packing train dataset:  49%|████▊     | 119000/244768 [00:01<00:01, 92505.46 examples/s]Packing train dataset:  53%|█████▎    | 129000/244768 [00:01<00:01, 92597.16 examples/s]Packing train dataset:  57%|█████▋    | 139000/244768 [00:01<00:01, 92707.07 examples/s]Packing train dataset:  61%|██████    | 149000/244768 [00:01<00:01, 92946.62 examples/s]Packing train dataset:  65%|██████▍   | 159000/244768 [00:01<00:00, 93061.07 examples/s]Packing train dataset:  69%|██████▉   | 169000/244768 [00:01<00:00, 93220.33 examples/s]Packing train dataset:  73%|███████▎  | 179000/244768 [00:01<00:00, 93243.90 examples/s]Packing train dataset:  77%|███████▋  | 189000/244768 [00:02<00:00, 92986.89 examples/s]Packing train dataset:  81%|████████▏ | 199000/244768 [00:02<00:00, 93261.53 examples/s]Packing train dataset:  85%|████████▌ | 209000/244768 [00:02<00:00, 93463.76 examples/s]Packing train dataset:  89%|████████▉ | 219000/244768 [00:02<00:00, 93278.33 examples/s]Packing train dataset:  94%|█████████▎| 229000/244768 [00:02<00:00, 93138.89 examples/s]Packing train dataset:  98%|█████████▊| 239000/244768 [00:02<00:00, 93061.99 examples/s]Packing train dataset: 100%|██████████| 244768/244768 [00:02<00:00, 90499.68 examples/s]
+{"step": 10, "elapsed_seconds": 15.946540036999977, "step_seconds": 1.437114572000155, "target_tokens": 31521, "warmup": true}
+{'loss': 11.2192, 'grad_norm': 2.59375, 'learning_rate': 1.3499999999999998e-05, 'epoch': 0.01451378809869376}
+{"step": 20, "elapsed_seconds": 30.56131945399966, "step_seconds": 1.4577742219998981, "target_tokens": 31779, "warmup": false}
+{'loss': 11.0896, 'grad_norm': 2.8125, 'learning_rate': 2.8499999999999998e-05, 'epoch': 0.02902757619738752}
+{"step": 30, "elapsed_seconds": 45.233205064999765, "step_seconds": 1.4721838969999226, "target_tokens": 32091, "warmup": false}
+{'loss': 10.4474, 'grad_norm': 3.21875, 'learning_rate': 4.3499999999999993e-05, 'epoch': 0.04354136429608128}
+{"step": 40, "elapsed_seconds": 59.976441705999605, "step_seconds": 1.4780435279999438, "target_tokens": 32008, "warmup": false}
+{'loss': 9.4222, 'grad_norm': 1.1953125, 'learning_rate': 5.85e-05, 'epoch': 0.05805515239477504}
+{"step": 50, "elapsed_seconds": 74.8757219299996, "step_seconds": 1.5316158319997157, "target_tokens": 32081, "warmup": false}
+{'loss': 8.6916, 'grad_norm': 0.94921875, 'learning_rate': 7.35e-05, 'epoch': 0.07256894049346879}
+{"step": 60, "elapsed_seconds": 90.26176971399991, "step_seconds": 1.5374334789999011, "target_tokens": 32150, "warmup": false}
+{'loss': 8.3739, 'grad_norm': 0.52734375, 'learning_rate': 8.849999999999998e-05, 'epoch': 0.08708272859216255}
+{"step": 70, "elapsed_seconds": 106.18458079599986, "step_seconds": 1.6069468640002924, "target_tokens": 32162, "warmup": false}
+{'loss': 8.2987, 'grad_norm': 0.478515625, 'learning_rate': 0.00010349999999999998, 'epoch': 0.10159651669085631}
+{'train_runtime': 120.5838, 'train_loss': 9.490302170379252, 'epoch': 0.11465892597968069}
+{
+  "train_seconds": 120.58307890499964,
+  "optimizer_steps": 79,
+  "target_tokens": 2528469,
+  "tokens_per_second_including_warmup": 20968.688334720937,
+  "warmup_steps": 10,
+  "measured_steps": 69,
+  "measured_seconds": 104.63653886799966,
+  "tokens_per_second": 21110.054134976064,
+  "seconds_per_optimizer_step": 1.5164715777970965,
+  "peak_allocated_gib": 40.150808334350586,
+  "peak_reserved_gib": 76.201171875,
+  "validation_loss": 8.123955377569404,
+  "validation_target_tokens": 50694
+}

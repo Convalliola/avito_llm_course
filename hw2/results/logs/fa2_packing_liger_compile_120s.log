@@ -1,0 +1,28 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are attempting to use Flash Attention 2 without specifying a torch dtype. This might lead to unexpected behaviour
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0] Graph break from `Tensor.item()`, consider setting:
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0]     torch._dynamo.config.capture_scalar_outputs = True
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0] or:
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0] to include these operations in the captured graph.
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0] 
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0] Graph break: from user code at:
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0]   File "/home/edu/venv-hw2/lib/python3.10/site-packages/transformers/modeling_flash_attention_utils.py", line 354, in torch_dynamo_resume_in_prepare_fa_kwargs_from_position_ids_at_335
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0]     max_length_q = max_length_q.item()
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0] 
+W1008 16:57:49.104000 15363 torch/_dynamo/variables/tensor.py:869] [22/0] 
+{"step": 10, "elapsed_seconds": 63.25565388299992, "step_seconds": 0.9682019500000933, "target_tokens": 31521, "warmup": true}
+Traceback (most recent call last):
+  File "/home/edu/hw2/train.py", line 349, in <module>
+    main()
+  File "/home/edu/hw2/train.py", line 339, in main
+    trainer.train()
+  File "/home/edu/venv-hw2/lib/python3.10/site-packages/transformers/trainer.py", line 2328, in train
+    return inner_training_loop(
+  File "/home/edu/venv-hw2/lib/python3.10/site-packages/transformers/trainer.py", line 2754, in _inner_training_loop
+    self._maybe_log_save_evaluate(
+  File "/home/edu/venv-hw2/lib/python3.10/site-packages/transformers/trainer.py", line 3223, in _maybe_log_save_evaluate
+    self.log(logs, start_time)
+  File "/home/edu/hw2/train.py", line 198, in log
+    raise FloatingPointError(f"Значение {key} не валидное")
+FloatingPointError: Значение loss не валидное

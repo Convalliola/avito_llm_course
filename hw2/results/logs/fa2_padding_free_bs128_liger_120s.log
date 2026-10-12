@@ -1,0 +1,64 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are attempting to use Flash Attention 2 without specifying a torch dtype. This might lead to unexpected behaviour
+{"step": 10, "elapsed_seconds": 7.754453538999769, "step_seconds": 0.4202303040001425, "target_tokens": 10233, "warmup": true}
+{'loss': 11.2266, 'grad_norm': 4.3125, 'learning_rate': 1.3499999999999998e-05, 'epoch': 0.005227391531625719}
+{"step": 20, "elapsed_seconds": 12.949160158999803, "step_seconds": 0.44555960799971217, "target_tokens": 10828, "warmup": false}
+{'loss': 11.1465, 'grad_norm': 4.21875, 'learning_rate': 2.8499999999999998e-05, 'epoch': 0.010454783063251438}
+{"step": 30, "elapsed_seconds": 18.29708467799992, "step_seconds": 0.6498001159998239, "target_tokens": 13167, "warmup": false}
+{'loss': 10.756, 'grad_norm': 3.984375, 'learning_rate': 4.3499999999999993e-05, 'epoch': 0.015682174594877155}
+{"step": 40, "elapsed_seconds": 23.639989706999586, "step_seconds": 0.48174628199922154, "target_tokens": 11864, "warmup": false}
+{'loss': 9.7108, 'grad_norm': 1.6484375, 'learning_rate': 5.85e-05, 'epoch': 0.020909566126502875}
+{"step": 50, "elapsed_seconds": 28.81247952600006, "step_seconds": 0.4537227669998174, "target_tokens": 11003, "warmup": false}
+{'loss': 8.8337, 'grad_norm': 0.7734375, 'learning_rate': 7.35e-05, 'epoch': 0.026136957658128592}
+{"step": 60, "elapsed_seconds": 33.94397618499988, "step_seconds": 0.4342786859997432, "target_tokens": 10476, "warmup": false}
+{'loss': 8.4796, 'grad_norm': 0.953125, 'learning_rate': 8.849999999999998e-05, 'epoch': 0.03136434918975431}
+{"step": 70, "elapsed_seconds": 38.741955311999845, "step_seconds": 0.508383829000195, "target_tokens": 12364, "warmup": false}
+{'loss': 8.3918, 'grad_norm': 0.87890625, 'learning_rate': 0.00010349999999999998, 'epoch': 0.03659174072138003}
+{"step": 80, "elapsed_seconds": 43.410855340000126, "step_seconds": 0.464527864000047, "target_tokens": 11219, "warmup": false}
+{'loss': 8.3315, 'grad_norm': 0.984375, 'learning_rate': 0.0001185, 'epoch': 0.04181913225300575}
+{"step": 90, "elapsed_seconds": 48.12543371399988, "step_seconds": 0.4659288459997697, "target_tokens": 11286, "warmup": false}
+{'loss': 8.2697, 'grad_norm': 0.96484375, 'learning_rate': 0.0001335, 'epoch': 0.04704652378463147}
+{"step": 100, "elapsed_seconds": 53.0038684809997, "step_seconds": 0.4422011899996505, "target_tokens": 10618, "warmup": false}
+{'loss': 8.2244, 'grad_norm': 1.6328125, 'learning_rate': 0.00014849999999999998, 'epoch': 0.052273915316257184}
+{"step": 110, "elapsed_seconds": 57.860607382000126, "step_seconds": 0.43740135400003055, "target_tokens": 10449, "warmup": false}
+{'loss': 8.1931, 'grad_norm': 1.421875, 'learning_rate': 0.0001635, 'epoch': 0.057501306847882905}
+{"step": 120, "elapsed_seconds": 62.623909551, "step_seconds": 0.45712356199965143, "target_tokens": 10892, "warmup": false}
+{'loss': 8.1274, 'grad_norm': 1.1328125, 'learning_rate': 0.00017849999999999997, 'epoch': 0.06272869837950862}
+{"step": 130, "elapsed_seconds": 67.51375348599959, "step_seconds": 0.451340276999872, "target_tokens": 10714, "warmup": false}
+{'loss': 8.0104, 'grad_norm': 0.8984375, 'learning_rate': 0.0001935, 'epoch': 0.06795608991113435}
+{"step": 140, "elapsed_seconds": 72.35592836500018, "step_seconds": 0.5151305850004064, "target_tokens": 12362, "warmup": false}
+{'loss': 7.9366, 'grad_norm': 0.80078125, 'learning_rate': 0.00020849999999999997, 'epoch': 0.07318348144276006}
+{"step": 150, "elapsed_seconds": 77.12377146299968, "step_seconds": 0.47647916299956705, "target_tokens": 11437, "warmup": false}
+{'loss': 7.8713, 'grad_norm': 1.0703125, 'learning_rate': 0.00022349999999999998, 'epoch': 0.07841087297438579}
+{"step": 160, "elapsed_seconds": 81.93107112399957, "step_seconds": 0.5023826579999877, "target_tokens": 11947, "warmup": false}
+{'loss': 7.7678, 'grad_norm': 0.85546875, 'learning_rate': 0.0002385, 'epoch': 0.0836382645060115}
+{"step": 170, "elapsed_seconds": 86.80363686199962, "step_seconds": 0.4473183659993083, "target_tokens": 10514, "warmup": false}
+{'loss': 7.7064, 'grad_norm': 0.9296875, 'learning_rate': 0.0002535, 'epoch': 0.08886565603763721}
+{"step": 180, "elapsed_seconds": 91.61180331899959, "step_seconds": 0.45479482099926827, "target_tokens": 10734, "warmup": false}
+{'loss': 7.5913, 'grad_norm': 1.1171875, 'learning_rate': 0.00026849999999999997, 'epoch': 0.09409304756926294}
+{"step": 190, "elapsed_seconds": 96.45754965299966, "step_seconds": 0.4646367959994677, "target_tokens": 10991, "warmup": false}
+{'loss': 7.5062, 'grad_norm': 1.53125, 'learning_rate': 0.00028349999999999995, 'epoch': 0.09932043910088866}
+{"step": 200, "elapsed_seconds": 101.35972683199998, "step_seconds": 0.46523334799985605, "target_tokens": 10902, "warmup": false}
+{'loss': 7.3594, 'grad_norm': 0.8671875, 'learning_rate': 0.0002985, 'epoch': 0.10454783063251437}
+{"step": 210, "elapsed_seconds": 106.1748989079997, "step_seconds": 0.4945353690000047, "target_tokens": 11777, "warmup": false}
+{'loss': 7.2768, 'grad_norm': 0.9296875, 'learning_rate': 0.0003, 'epoch': 0.1097752221641401}
+{"step": 220, "elapsed_seconds": 111.56012760399972, "step_seconds": 0.46380820499962283, "target_tokens": 10978, "warmup": false}
+{'loss': 7.2323, 'grad_norm': 0.93359375, 'learning_rate': 0.0003, 'epoch': 0.11500261369576581}
+{"step": 230, "elapsed_seconds": 116.4551423619996, "step_seconds": 0.514146989999972, "target_tokens": 12108, "warmup": false}
+{'loss': 7.1028, 'grad_norm': 0.96484375, 'learning_rate': 0.0003, 'epoch': 0.12023000522739154}
+{'train_runtime': 120.4385, 'train_loss': 8.347527768431592, 'epoch': 0.1244119184526921}
+{
+  "train_seconds": 120.43765061399972,
+  "optimizer_steps": 238,
+  "target_tokens": 2723020,
+  "tokens_per_second_including_warmup": 22609.374943116625,
+  "warmup_steps": 10,
+  "measured_steps": 228,
+  "measured_seconds": 112.68319707499995,
+  "tokens_per_second": 23169.798761232043,
+  "seconds_per_optimizer_step": 0.4942245485745612,
+  "peak_allocated_gib": 21.139706134796143,
+  "peak_reserved_gib": 35.6171875,
+  "validation_loss": 6.8408969132844835,
+  "validation_target_tokens": 50694
+}
