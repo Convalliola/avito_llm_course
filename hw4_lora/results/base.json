@@ -1,0 +1,138 @@
+{
+ "name": "base",
+ "method": "base",
+ "trainable_params": 0,
+ "total_params": 1543714304,
+ "sberquad_em": 0.099,
+ "sberquad_f1": 0.4464277532441534,
+ "sberquad_nll": 0.9234464185327488,
+ "mmlu_acc": 0.5856003418316479,
+ "mmlu_by_subject": {
+  "abstract_algebra": 0.31,
+  "anatomy": 0.5333333333333333,
+  "astronomy": 0.6973684210526315,
+  "business_ethics": 0.6,
+  "clinical_knowledge": 0.6792452830188679,
+  "college_biology": 0.6805555555555556,
+  "college_chemistry": 0.35,
+  "college_computer_science": 0.52,
+  "college_mathematics": 0.32,
+  "college_medicine": 0.6242774566473989,
+  "college_physics": 0.47058823529411764,
+  "computer_security": 0.73,
+  "conceptual_physics": 0.5787234042553191,
+  "econometrics": 0.43859649122807015,
+  "electrical_engineering": 0.6068965517241379,
+  "elementary_mathematics": 0.4074074074074074,
+  "formal_logic": 0.49206349206349204,
+  "global_facts": 0.26,
+  "high_school_biology": 0.7677419354838709,
+  "high_school_chemistry": 0.4975369458128079,
+  "high_school_computer_science": 0.68,
+  "high_school_european_history": 0.7333333333333333,
+  "high_school_geography": 0.7676767676767676,
+  "high_school_government_and_politics": 0.7823834196891192,
+  "high_school_macroeconomics": 0.6358974358974359,
+  "high_school_mathematics": 0.2962962962962963,
+  "high_school_microeconomics": 0.680672268907563,
+  "high_school_physics": 0.3576158940397351,
+  "high_school_psychology": 0.8311926605504587,
+  "high_school_statistics": 0.5,
+  "high_school_us_history": 0.696078431372549,
+  "high_school_world_history": 0.759493670886076,
+  "human_aging": 0.6322869955156951,
+  "human_sexuality": 0.6946564885496184,
+  "international_law": 0.7272727272727273,
+  "jurisprudence": 0.7592592592592593,
+  "logical_fallacies": 0.7607361963190185,
+  "machine_learning": 0.4107142857142857,
+  "management": 0.8155339805825242,
+  "marketing": 0.8418803418803419,
+  "medical_genetics": 0.7,
+  "miscellaneous": 0.7241379310344828,
+  "moral_disputes": 0.6098265895953757,
+  "moral_scenarios": 0.29832402234636873,
+  "nutrition": 0.6797385620915033,
+  "philosophy": 0.6527331189710611,
+  "prehistory": 0.6851851851851852,
+  "professional_accounting": 0.4716312056737589,
+  "professional_law": 0.40808344198174706,
+  "professional_medicine": 0.6397058823529411,
+  "professional_psychology": 0.5702614379084967,
+  "public_relations": 0.6090909090909091,
+  "security_studies": 0.6571428571428571,
+  "sociology": 0.7960199004975125,
+  "us_foreign_policy": 0.74,
+  "virology": 0.4457831325301205,
+  "world_religions": 0.7894736842105263
+ },
+ "eval_timings": {
+  "sberquad_generate": 120.93896913528442,
+  "sberquad_nll": 44.97068238258362,
+  "mmlu": 59.941497564315796
+ },
+ "manual": [
+  {
+   "kind": "sberquad",
+   "id": 23816,
+   "question": "Как называется работа по сопоставлению с уже известными источниками, мысленной достройки, заполнению лакуна, исправлением искажений и очисткой от более поздних напластований и субъективных интерпретаций?",
+   "answer": "реконструктивной",
+   "output": "Реконструктивная работа."
+  },
+  {
+   "kind": "sberquad",
+   "id": 54044,
+   "question": "В каком году была создана программа Аттестации бизнес- и конференц-отелей ?",
+   "answer": "в 2012 году",
+   "output": "В 2012 году была создана программа Аттестации бизнес- и конференц-отелей."
+  },
+  {
+   "kind": "sberquad",
+   "id": 5954,
+   "question": "Как в случае классификации по форме немецкие теоретики различают виды Д.?",
+   "answer": "Д. характеров и Д. положения",
+   "output": "В случае классификации по форме немецкие теоретики различают Д. по характерам и положениям, смотря по тому, чем объясняются речи и поступки героев."
+  },
+  {
+   "kind": "sberquad",
+   "id": 13963,
+   "question": "Что проводят с целью углубленного понимания денежно-кредитной политики, национальной и региональной экономики, функционирования финансовых рынков и политики банковского надзора?",
+   "answer": "новаторские исследования",
+   "output": "Экономисты Федеральный резервный банк Бостона проводят новаторские исследования с целью углубленного понимания денежно-кредитной политики, национальной и региональной экономики, функционирования финансовых рынков и"
+  },
+  {
+   "kind": "sberquad",
+   "id": 54696,
+   "question": "С течением какой реки примерно совпадает северная граница Малой Азии?",
+   "answer": "Чороха",
+   "output": "У берегов Малой Азии расположены острова (Кипр, Родос и др.)."
+  },
+  {
+   "kind": "sberquad",
+   "id": 14217,
+   "question": "Кто стал первым заместителем председателя правления банка Русский Стандарт с 12 ноября?",
+   "answer": "Александр Григорьев",
+   "output": "Александр Григорьев"
+  },
+  {
+   "kind": "general",
+   "prompt": "Объясни простыми словами, что такое фотосинтез.",
+   "output": "Фотосинтез - это процесс, при котором растения и некоторые виды微生物 создают себе энергию из солнечной энергии. Вот как это работает:\n\n1. Вода и углекислый газ в воде попадают в растение.\n\n2. В растении образуется хлоропласт, который содержит клеточную мембрану.\n\n3. В клеточную мембрану попадает солнечная энергия.\n\n4. Солнечная энергия преобразуется в электрическую энергию.\n\n5. Электрическая энергия используется для создания энергии из воды и углекислого газа.\n\n6. Из этого процесса получается сахар и другие питательные вещества, которые растение использует для своей жизнедеятельности.\n\nТаким образом, фотосинтез - это процесс, при котором растения создают свою энергию из солнечной энергии, используя воду и углекислый газ."
+  },
+  {
+   "kind": "general",
+   "prompt": "Напиши короткое поздравление коллеге с днем рождения.",
+   "output": "Вот короткое поздравление коллеге с днем рождения:\n\n\"С Днем Рождения! Желаю вам сегодня и впредь здоровья, счастья и благополучия. Пусть каждый новый день принесет вам новые достижения и радости. С праздником!\""
+  },
+  {
+   "kind": "general",
+   "prompt": "У Маши было 5 яблок, она отдала 2 брату и купила еще 4. Сколько яблок у Маши? Объясни решение.",
+   "output": "Давайте решим эту задачу шаг за шагом:\n\n1) Маши было 5 яблок.\n2) Она отдала 2 яблока брату.\n   5 - 2 = 3 яблока осталось у Маши.\n\n3) Маши купила еще 4 яблока.\n   3 + 4 = 7 яблок.\n\nТаким образом, после всех действий у Маши осталось 7 яблок.\n\nОтвет: Маши унаследовало 7 яблок."
+  },
+  {
+   "kind": "general",
+   "prompt": "Give three tips for learning a new language.",
+   "output": "1. Practice consistently: Learning a new language requires consistent practice to build fluency. Set aside time each day to study and practice speaking, listening, reading, and writing in the language you are learning.\n\n2. Immersion: Surround yourself with the language as much as possible. This can be done by watching movies, TV shows, and listening to music in the language, or by talking to native speakers. Immersion helps you to absorb the language more quickly and easily.\n\n3. Use technology: There are many apps and online resources available to help you learn a new language. Use these tools to practice your skills, learn new vocabulary, and improve your grammar. Additionally, consider taking a language course or hiring a tutor to help you learn more effectively."
+  }
+ ]
+}

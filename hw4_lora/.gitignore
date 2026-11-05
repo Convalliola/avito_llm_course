@@ -1,0 +1,10 @@
+# разбиение воспроизводится командой python common.py, в репозитории только id вопросов
+data/*.jsonl
+outputs/
+logs/
+hf/
+venv/
+__pycache__/
+results/smoke/
+hw4_instructions.md
+
